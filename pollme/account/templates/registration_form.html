@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-4 offset-md-4">
+                    <p>You have Already account!<a href="{% url 'account:login_user' %}"> Click Here</a> </p>
+        <form action="" method="POST">
+        {% csrf_token %}
+    {% for field in form %}
+                  <div class="form-group">
+                      {{ field.errors }}
+                      {{form.password2.errors}}
+                    {{ field.label_tag }}
+                      {{field}}
+                  </div>
+            {% endfor %}
+    <input type="submit" value="submit" class="btn btn-primary">
+         </form>
+    </div>
+    </div>
+    </div>
+
+
+{% endblock %}

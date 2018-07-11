@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block custom_css %}
+
+    <link rel="stylesheet "  href="{% static 'css/home_styles.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+      <main role="main" class="container">
+      <div class="jumbotron">
+        <h1>Mohammad Shir Mohammadi</h1>
+        <p class="lead">Just for test .</p>
+        <a class="btn btn-lg btn-primary" href="{% url 'polls:contact' %}" role="button">See me  &raquo;</a>
+      </div>
+    </main>
+
+
+  <div class="container">
+      <div class="row">
+          <div class="col">
+              <div id="home">
+              <h1>mohammad</h1>
+              <h2>shir mohammadi</h2>
+               <a href="{% url 'polls:contact' %}" class="btn btn-primary">see me</a>
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+{% endblock %}

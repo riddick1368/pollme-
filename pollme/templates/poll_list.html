@@ -1,0 +1,28 @@
+{% include "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Welcome to my polls</h1>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <a href="?vote=True" class ="btn btn-{% if 'vote' in request.GET %}warning{% else %}primary{% endif %}" style="margin-bottom: 5px">vote</a>
+        <a href="?text=True" class ="btn btn-{% if 'text' in request.GET %}warning{% else %}primary{% endif %}" style="margin-bottom: 5px">A-Z</a>
+        <a href="?timestamp=True" class ="btn btn-{% if 'timestamp' in request.GET %}warning{% else %}primary{% endif %}" style="margin-bottom: 5px">timestamp</a>
+       <a href="{% url 'polls:add' %}" class="btn btn-primary float-right" >ADD <i class="fas fa-plus"></i></a>
+   <ul class="list-group">
+    {% for obj in poll %}
+   <li  class="list-group-item ">
+       <a href="{% url 'polls:poll_single' id=obj.id %}">{{obj.text}}</a>
+
+       <a href="{% url 'polls:edit' id=obj.id %}" class ="float-right"><i class="fas fa-edit"></i></a>
+
+       </li>
+       {% endfor %}
+
+      </ul>
+    </div>
+ </div>
+</div>
+
+{% endblock %}
+

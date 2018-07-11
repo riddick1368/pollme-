@@ -1,0 +1,29 @@
+
+ body{
+    background-image: url( '../img/2019.jpg') ;
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+ }
+
+ #home {
+        text-align:center;
+        color:black;
+        padding-top:50px;
+ }
+
+
+
+
+
+ .jumbotron {
+    background-image: url( '../img/2019.jpg') ;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    color: white;
+ }

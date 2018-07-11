@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<div class="container">
+
+{{instance}} {{instance.num_votes}}
+<form action="{% url 'polls:poll_voted' instance.id %}" method="post">
+{% csrf_token %}
+{% for obj in instance.question_set.all %}
+<input type="radio"
+       name="choice"
+       id="obj{{forloop.counter}}"
+       value="{{obj.id}}">
+<label for="obj{{forloop.counter}}">{{obj.choice_text}} - {{obj.num_votes}}</label>
+    <br/>
+{% endfor %}
+<input type="submit" value="vote"/>
+</form>
+</div>
+{% endblock %}
